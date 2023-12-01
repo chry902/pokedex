@@ -51,17 +51,32 @@ const FullPokemon = () => {
   const { pokemonData } = useStore();
   const baseName = pokemonData.name || "bulbasaur";
   const baseWeight = pokemonData.weight || "1";
+  const baseHeight = 10 * pokemonData.height || 10;
+
   const baseAbilities = "ancora da imparare";
   const baseType = "speciale";
   const baseImage =
     pokemonData?.sprites?.other?.home.front_default ||
     pokemonData?.sprites?.front_default ||
     pokDefault;
-
+  const experiece = pokemonData.base_experience || 500;
   const typeColor = pokemonData.types || [];
   const firstType = typeColor.length > 0 ? typeColor[0] : null;
   const firstTypeClass =
     firstType && firstType.type ? firstType.type.name : "grass";
+  const hp =
+    pokemonData && pokemonData.stats ? pokemonData.stats[0].base_stat : 300;
+  const attack =
+    pokemonData && pokemonData.stats ? pokemonData.stats[1].base_stat : 300;
+
+  const defense =
+    pokemonData && pokemonData.stats ? pokemonData.stats[2].base_stat : 300;
+  const spAttack =
+    pokemonData && pokemonData.stats ? pokemonData.stats[3].base_stat : 300;
+  const spDefense =
+    pokemonData && pokemonData.stats ? pokemonData.stats[4].base_stat : 300;
+  const speed =
+    pokemonData && pokemonData.stats ? pokemonData.stats[5].base_stat : 300;
 
   const getTypeImage = (type) => {
     switch (type) {
@@ -105,8 +120,21 @@ const FullPokemon = () => {
         return null;
     }
   };
-  //const { imgTypes, bgImg } = getTypeImage(type.type.name);
-  console.log("firstTypeClass", firstTypeClass);
+
+  console.log(
+    "hp",
+    hp,
+    "attac",
+    attack,
+    "defense",
+    defense,
+    "spAttac",
+    spAttack,
+    "spDefense",
+    spDefense,
+    "speed",
+    speed
+  );
 
   return (
     <div className="card_container ">
@@ -116,51 +144,119 @@ const FullPokemon = () => {
           alt={baseName || baseName}
           width="100%"
           height="100%"
+          priority={true}
         />
       </div>
-      <div className="style_card">
-        <div className="pokemon_image_Contaienr">
-          <Image
-            src={baseImage}
-            alt={baseName}
-            width={250}
-            height={250}
-            placeholder="empty"
-            priority={true}
-          />
-        </div>
-        <div className="w-full flex flex-col jjustify-evenly ">
-          <h3 className="mb-3 ext-5xl">Nome: {baseName}</h3>
-          <p className=""> Peso: {baseWeight}Kg</p>
-          <div className="flex flex-row items-center m-1">
-            <p>mosse:</p>
-            {pokemonData?.abilities?.map((ability, i) => (
-              <div
-                className={`${
-                  "background_" + firstTypeClass
-                }  type-badge  rounded-full p-3 flex items-center m-1 text-withe`}
-                key={i}
-              >
-                {ability.ability.name || baseAbilities}
-              </div>
-            ))}
+      <div className="style_card_wrapper">
+        <div className="style_card">
+          <div className="pokemon_image_Contaienr flex justify-center">
+            <Image
+              src={baseImage}
+              alt={baseName}
+              width={200}
+              height={200}
+              placeholder="empty"
+              priority={true}
+            />
           </div>
-          <div className=" w-full flex  items-center `">
-            <p>Types</p>
-            {pokemonData?.types?.map((type, i) => (
-              <div
-                key={i}
-                className={`${type.type.name} icon type-badge  rounded-full p-3 flex items-center m-2`}
-              >
-                <Image
-                  src={getTypeImage(type.type.name).img}
-                  alt={type.type.name || baseType}
-                  width={30}
-                  height={30}
-                  priority
-                />
+
+          <div className="w-full flex flex-col justify-evenly ">
+            <div className="w-full flex  flex-col justify-center items-center">
+              <h3 className="mb-3 ext-5xl">{baseName.toUpperCase()}</h3>
+              <progress
+                className="progress w-56"
+                value={experiece}
+                max="500"
+              ></progress>
+            </div>
+            <div className=" poke_data_wrapper">
+              <p className="base_weigth flex justify-center text-xl">
+                {baseWeight}Kg
+              </p>
+              <div className="divisor"></div>
+              <div className="base_type gap-x-4  `">
+                {pokemonData?.types?.map((type, i) => (
+                  <div
+                    className=" flex justify-center flex-col items-center "
+                    key={i}
+                  >
+                    <div
+                      className={`${type.type.name}  icon type-badge  rounded-full p-3 flex items-center `}
+                    >
+                      <Image
+                        src={getTypeImage(type.type.name).img}
+                        alt={type.type.name || baseType}
+                        width={20}
+                        height={20}
+                        priority
+                      />
+                    </div>
+                    <p className="type_under_image_type">
+                      {type.type.name.toUpperCase()}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+              <div className="divisor"></div>
+              <p className="base_heigth flex justify-center text-xl">
+                {baseHeight}cm
+              </p>
+            </div>
+            <div className="flex flex-row items-center m-1">
+              <p>mosse:</p>
+              {pokemonData?.abilities?.map((ability, i) => (
+                <div
+                  className={`${
+                    "background_" + firstTypeClass
+                  }  type-badge text-lg rounded-2xl p-2 flex items-center m-1 text-white`}
+                  key={i}
+                >
+                  {ability.ability.name || baseAbilities}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="stats_wrapper">
+            <div className="hp_wrapper">
+              <p>Hp</p>
+              <progress
+                className="progress progress-error w-56"
+                value={hp}
+                max="250"
+              ></progress>
+            </div>
+            <div className="attack_wrapper">
+              <p>Attack</p>
+              <progress
+                className="progress progress-info w-56"
+                value={attack}
+                max="250"
+              ></progress>
+            </div>
+            <div className="defense_wrapper">
+              <p>Defesa</p>
+              <progress
+                className="progress progress-warning w-56"
+                value={defense}
+                max="250"
+              ></progress>
+            </div>
+            <div className="spatk_wrapper">
+              <p>Special-Attack</p>
+              <progress
+                className="progress progress-primary w-56"
+                value={spAttack}
+                max="250"
+              ></progress>
+            </div>
+            <div className="spdef_wrapper">
+              <p>Special-Defense</p>
+              <progress
+                className="progress progress-secondary w-56"
+                value={spDefense}
+                max="250"
+              ></progress>
+            </div>
           </div>
         </div>
       </div>
