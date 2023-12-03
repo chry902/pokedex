@@ -1,5 +1,5 @@
 import FullPokemon from "@/Component/FullPokemon/fullPokemon";
-import HomePage from "@/Component/HomePage/homePage";
+import PokeList from "@/Component/PokeList/pokeList";
 
 const url = `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`;
 
@@ -15,7 +15,7 @@ export default async function Home() {
     <main className="flex ">
       <div className="contain">
         <div className="home_page">
-          <HomePage pokemon={pokemon} />
+          <PokeList pokemon={pokemon} />
         </div>
         <div className="full_pokemon ">
           <FullPokemon />

@@ -10,9 +10,9 @@ async function getData(url) {
     console.error("Errore nella chiamata fullPokemon", response);
   }
 }
-const HomePage = ({ pokemon }) => {
+const PokeList = ({ pokemon }) => {
   const { setPokemonData } = useStore();
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState("bulbasaur");
   const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     getData("bulbasaur").then((data) => {
@@ -28,13 +28,9 @@ const HomePage = ({ pokemon }) => {
       console.log("/////////////////////", data);
     });
   };
-  const filteredPokemon = pokemon.results.filter(
-    (item) =>
-      item.name.includes(searchQuery.toLowerCase()) ||
-      String(item.url.split("/")[6]).startsWith(searchQuery)
-  );
+
   return (
-    <div className="flex flex-col justify-center ">
+    <div className="poke_list_contain flex flex-col  ">
       <div className="input_wrapper">
         <input
           className="input input-bordered input-warning w-full max-w-xs"
@@ -44,7 +40,7 @@ const HomePage = ({ pokemon }) => {
           placeholder="Bulbasour.... or #0001"
         />
       </div>
-      <ul>
+      <ul className="list_name_wrapper">
         {pokemon.results
           .filter(
             (item) =>
@@ -73,4 +69,4 @@ const HomePage = ({ pokemon }) => {
   );
 };
 
-export default HomePage;
+export default PokeList;

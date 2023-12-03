@@ -2,8 +2,8 @@
 
     background-color: #C9BB8A;
     width: 100%;
-    min-width: 340px;
-    height: 100%px;
+
+    height: 100%;
     display: flex;
     justify-content: center;
 
@@ -37,8 +37,7 @@
     padding: 1rem;
     width: 85%;
     max-width: 85%;
-    max-height: 76%;
-    min-height: 600px;
+
     display: flex;
     flex-direction: column;
 
@@ -63,12 +62,10 @@
     border-bottom: 2.5px solid rgb(199, 199, 199);
 }
 
-.base_weight {
-    /* width: calc(100% / 3); */
-}
+.base_weight {}
 
 .base_type {
-    /* width: calc(100% / 3); */
+
     display: flex;
     justify-content: center;
 
@@ -78,9 +75,7 @@
     margin-top: 0.5rem;
 }
 
-.base_height {
-    /* width: calc(100% / 3); */
-}
+
 
 .divisor {
     width: 2px;
@@ -227,10 +222,25 @@
 
 
 
-@media only screen and (min-width: 425px) {
+@media only screen and (min-width: 430px) {
+
 
     .style_card {
         width: 400px;
+    }
+
+    .poke_data_wrapper {
+
+        margin: 0.3rem 0;
+
+    }
+
+}
+
+@media only screen and (max-width: 430px) {
+    .style_card_wrapper {
+        align-items: end;
+        bottom: 0.5rem;
     }
 
 

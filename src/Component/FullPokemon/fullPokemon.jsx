@@ -174,7 +174,7 @@ const FullPokemon = () => {
                 {baseWeight}Kg
               </p>
               <div className="divisor"></div>
-              <div className="base_type gap-x-4  `">
+              <div className="base_type gap-x-4  ">
                 {pokemonData?.types?.map((type, i) => (
                   <div
                     className=" flex justify-center flex-col items-center "
@@ -202,17 +202,17 @@ const FullPokemon = () => {
                 {baseHeight}cm
               </p>
             </div>
-            <div className="flex flex-row items-center m-1">
+            <div className="flex flex-row items-center m-1 flex-wrap">
               <p>mosse:</p>
               {pokemonData?.abilities?.map((ability, i) => (
-                <div
+                <h2
                   className={`${
                     "background_" + firstTypeClass
                   }  type-badge text-lg rounded-2xl p-2 flex items-center m-1 text-white`}
                   key={i}
                 >
                   {ability.ability.name || baseAbilities}
-                </div>
+                </h2>
               ))}
             </div>
           </div>
