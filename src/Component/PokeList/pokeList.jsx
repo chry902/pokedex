@@ -33,7 +33,7 @@ const PokeList = ({ pokemon }) => {
     <div className="poke_list_contain flex flex-col  ">
       <div className="input_wrapper">
         <input
-          className="input input-bordered input-warning w-full max-w-xs"
+          className="input input-bordered input-warning w-full "
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
