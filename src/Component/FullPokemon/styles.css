@@ -37,7 +37,7 @@
     padding: 1rem;
     width: 85%;
     max-width: 85%;
-
+    height: 600px;
     display: flex;
     flex-direction: column;
 
@@ -221,8 +221,17 @@
 }
 
 
+@media screen and (max-width: 500px) {
+    .style_card_wrapper {
+        align-items: end;
+        bottom: 0.5rem;
+    }
 
-@media only screen and (min-width: 430px) {
+
+
+}
+
+@media screen and (min-width: 430px) {
 
 
     .style_card {
@@ -234,15 +243,5 @@
         margin: 0.3rem 0;
 
     }
-
-}
-
-@media only screen and (max-width: 430px) {
-    .style_card_wrapper {
-        align-items: end;
-        bottom: 0.5rem;
-    }
-
-
 
 }

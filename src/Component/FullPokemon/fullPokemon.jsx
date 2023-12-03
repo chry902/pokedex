@@ -162,7 +162,7 @@ const FullPokemon = () => {
 
           <div className="w-full flex flex-col justify-evenly ">
             <div className="w-full flex  flex-col justify-center items-center">
-              <h3 className="mb-3 ext-5xl">{baseName.toUpperCase()}</h3>
+              <h2 className="mb-3 ext-5xl">{baseName.toUpperCase()}</h2>
               <progress
                 className="progress w-56"
                 value={experiece}
@@ -205,14 +205,14 @@ const FullPokemon = () => {
             <div className="flex flex-row items-center m-1 flex-wrap">
               <p>mosse:</p>
               {pokemonData?.abilities?.map((ability, i) => (
-                <h2
+                <h4
                   className={`${
                     "background_" + firstTypeClass
                   }  type-badge text-lg rounded-2xl p-2 flex items-center m-1 text-white`}
                   key={i}
                 >
                   {ability.ability.name || baseAbilities}
-                </h2>
+                </h4>
               ))}
             </div>
           </div>
