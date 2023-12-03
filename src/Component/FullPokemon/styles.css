@@ -35,7 +35,7 @@
 
 .style_card {
     padding: 1rem;
-    width: 85%;
+    width: 500px;
     max-width: 85%;
     height: 600px;
     display: flex;
@@ -81,6 +81,10 @@
     width: 2px;
     height: 50%;
     background-color: rgb(214, 214, 214);
+}
+
+.stats_wrapper {
+    width: 100%;
 }
 
 .icon {
@@ -221,21 +225,19 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 530px) {
     .style_card_wrapper {
         align-items: end;
         bottom: 0.5rem;
     }
 
-
-
-}
-
-@media screen and (min-width: 430px) {
-
-
     .style_card {
         width: 400px;
+        height: 480px;
+    }
+
+    .mosse {
+        display: none;
     }
 
     .poke_data_wrapper {
@@ -243,5 +245,17 @@
         margin: 0.3rem 0;
 
     }
+
+}
+
+@media screen and (min-width: 530px) {
+
+
+    .style_card {
+        width: 400px;
+
+    }
+
+
 
 }

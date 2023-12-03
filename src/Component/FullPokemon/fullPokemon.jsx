@@ -202,13 +202,13 @@ const FullPokemon = () => {
                 {baseHeight}cm
               </p>
             </div>
-            <div className="flex flex-row items-center m-1 flex-wrap">
-              <p>mosse:</p>
+            <div className="mosse flex flex-row items-center text-xs m-1 flex-wrap">
+              <p>Mosse:</p>
               {pokemonData?.abilities?.map((ability, i) => (
                 <h4
                   className={`${
                     "background_" + firstTypeClass
-                  }  type-badge text-lg rounded-2xl p-2 flex items-center m-1 text-white`}
+                  }  type-badge  rounded-md p-1 flex items-center m-1 text-white`}
                   key={i}
                 >
                   {ability.ability.name || baseAbilities}
@@ -220,7 +220,7 @@ const FullPokemon = () => {
             <div className="hp_wrapper">
               <p>Hp</p>
               <progress
-                className="progress progress-error w-56"
+                className="progress progress-error w-80"
                 value={hp}
                 max="250"
               ></progress>
@@ -228,7 +228,7 @@ const FullPokemon = () => {
             <div className="attack_wrapper">
               <p>Attack</p>
               <progress
-                className="progress progress-info w-56"
+                className="progress progress-info w-80"
                 value={attack}
                 max="250"
               ></progress>
@@ -236,7 +236,7 @@ const FullPokemon = () => {
             <div className="defense_wrapper">
               <p>Defesa</p>
               <progress
-                className="progress progress-warning w-56"
+                className="progress progress-warning w-80"
                 value={defense}
                 max="250"
               ></progress>
@@ -244,7 +244,7 @@ const FullPokemon = () => {
             <div className="spatk_wrapper">
               <p>Special-Attack</p>
               <progress
-                className="progress progress-primary w-56"
+                className="progress progress-primary w-80"
                 value={spAttack}
                 max="250"
               ></progress>
@@ -252,7 +252,7 @@ const FullPokemon = () => {
             <div className="spdef_wrapper">
               <p>Special-Defense</p>
               <progress
-                className="progress progress-secondary w-56"
+                className="progress progress-secondary w-80"
                 value={spDefense}
                 max="250"
               ></progress>
